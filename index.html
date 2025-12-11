@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="InkAndImagination.com - Professional sketch and painting artist Neil from USA. Custom portraits, wildlife, landscapes, floral and abstract art.">
-    <meta name="keywords" content="art, paintings, sketches, portraits, custom art, Neil artist, USA artist, wildlife art, landscape paintings">
-    <title>Ink & Imagination - Art That Speaks Without Words</title>
+    <title>Ink & Imagination - Premium Art Gallery</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,159 +16,164 @@
         }
 
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #8b7355;
-            --accent-color: #d4a574;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #f9f7f4;
+            --primary: #1a1a1a;
+            --secondary: #f5f5f5;
+            --accent: #c9a96e;
+            --text: #2d2d2d;
+            --text-light: #6b6b6b;
             --white: #ffffff;
-            --shadow: 0 4px 20px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
+            --border: #e0e0e0;
         }
 
         body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            background: var(--white);
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
         }
 
-        /* Navigation */
-        nav {
+        /* Header */
+        header {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
         }
 
-        .nav-container {
+        nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1.5rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
-            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            letter-spacing: 1px;
         }
 
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             list-style: none;
             align-items: center;
         }
 
-        .nav-links a {
+        .nav-menu a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text);
+            font-size: 0.95rem;
             font-weight: 500;
-            transition: var(--transition);
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
+        .nav-menu a:hover {
+            color: var(--accent);
         }
 
-        .cart-icon {
+        .cart-btn {
             position: relative;
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: var(--accent);
         }
 
         .cart-count {
             position: absolute;
             top: -8px;
             right: -8px;
-            background: var(--accent-color);
-            color: white;
+            background: var(--accent);
+            color: var(--white);
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.75rem;
-            font-weight: 700;
+            font-weight: 600;
         }
 
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
             margin-top: 80px;
-            height: 90vh;
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(139, 115, 85, 0.8)), 
-                        url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1600&q=80');
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1600&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            position: relative;
+            color: var(--white);
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             padding: 2rem;
-            animation: fadeInUp 1s ease;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
         }
 
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             font-weight: 300;
+            letter-spacing: 1px;
         }
 
-        .cta-button {
+        .btn-primary {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--accent-color);
-            color: white;
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 3rem;
             text-decoration: none;
-            border-radius: 50px;
             font-weight: 600;
-            transition: var(--transition);
+            letter-spacing: 1px;
+            transition: all 0.3s;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
-        .cta-button:hover {
-            background: var(--secondary-color);
+        .btn-primary:hover {
+            background: var(--accent);
+            color: var(--white);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
-        /* Section Styles */
+        /* Section */
         section {
-            padding: 5rem 2rem;
+            padding: 6rem 3rem;
         }
 
         .container {
@@ -177,111 +181,138 @@
             margin: 0 auto;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            color: var(--primary);
+            font-weight: 400;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 3rem;
+        .section-header p {
             font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* About Section */
+        /* About */
         .about {
-            background: var(--bg-light);
+            background: var(--secondary);
         }
 
-        .about-content {
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            line-height: 1.8;
         }
 
         .about-image {
             width: 100%;
-            height: 400px;
+            height: 500px;
             background: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80');
             background-size: cover;
             background-position: center;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
         }
 
-        /* Gallery Section */
+        .about-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Gallery */
         .gallery {
-            background: white;
+            background: var(--white);
         }
 
-        .category-section {
-            margin-bottom: 5rem;
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .category-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-            border-left: 4px solid var(--accent-color);
-            padding-left: 1rem;
+        .category-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 0.7rem 2rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
         }
 
-        .artwork-grid {
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .artwork-card {
-            background: white;
-            border-radius: 10px;
+        .artwork-item {
+            position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            cursor: pointer;
+            background: var(--secondary);
         }
 
-        .artwork-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
-
-        .artwork-image {
+        .artwork-item img {
             width: 100%;
-            height: 300px;
+            height: 400px;
             object-fit: cover;
-            display: block;
+            transition: transform 0.5s;
         }
 
-        .artwork-info {
-            padding: 1.5rem;
+        .artwork-item:hover img {
+            transform: scale(1.05);
         }
 
-        .artwork-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
+        .artwork-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
         }
 
-        .artwork-price {
+        .artwork-item:hover .artwork-overlay {
+            transform: translateY(0);
+        }
+
+        .artwork-overlay h4 {
+            color: var(--white);
             font-size: 1.5rem;
-            color: var(--accent-color);
-            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .artwork-overlay .price {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
 
@@ -290,44 +321,44 @@
             gap: 1rem;
         }
 
-        .btn {
-            flex: 1;
-            padding: 0.75rem;
+        .btn-small {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.85rem;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
             font-weight: 600;
-            transition: var(--transition);
-            text-align: center;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
         }
 
         .btn-cart {
-            background: var(--primary-color);
-            color: white;
+            background: var(--white);
+            color: var(--primary);
         }
 
         .btn-cart:hover {
-            background: var(--secondary-color);
+            background: var(--accent);
+            color: var(--white);
         }
 
         .btn-buy {
-            background: var(--accent-color);
-            color: white;
+            background: var(--accent);
+            color: var(--white);
         }
 
         .btn-buy:hover {
-            background: var(--secondary-color);
+            background: var(--primary);
         }
 
-        /* Contact Section */
+        /* Contact */
         .contact {
-            background: var(--bg-light);
+            background: var(--secondary);
         }
 
-        .contact-container {
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .contact-info {
@@ -338,18 +369,29 @@
 
         .info-item {
             display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
-            color: var(--accent-color);
+            flex-shrink: 0;
         }
 
         .info-text h4 {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: var(--primary-color);
+            color: var(--primary);
+        }
+
+        .info-text p {
+            color: var(--text-light);
         }
 
         .contact-form {
@@ -366,22 +408,24 @@
         .form-group label {
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--primary-color);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
 
         .form-group input,
         .form-group textarea {
             padding: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 5px;
-            font-family: 'Lato', sans-serif;
-            transition: var(--transition);
+            border: 1px solid var(--border);
+            background: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-color);
+            border-color: var(--accent);
         }
 
         .form-group textarea {
@@ -391,9 +435,9 @@
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 3rem 2rem 1rem;
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 3rem 2rem;
         }
 
         .footer-content {
@@ -403,9 +447,10 @@
         }
 
         .footer-brand {
-            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
             margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-weight: 700;
         }
 
         .social-links {
@@ -416,20 +461,29 @@
         }
 
         .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: var(--transition);
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
         }
 
         .social-links a:hover {
-            color: var(--accent-color);
+            background: var(--accent);
+            border-color: var(--accent);
         }
 
         .copyright {
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
         }
 
         /* Cart Modal */
@@ -440,7 +494,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.8);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -451,9 +505,8 @@
         }
 
         .cart-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
+            background: var(--white);
+            padding: 3rem;
             max-width: 600px;
             width: 90%;
             max-height: 80vh;
@@ -466,179 +519,163 @@
             align-items: center;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid var(--bg-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-header h2 {
+            font-size: 2rem;
         }
 
         .close-cart {
             font-size: 2rem;
             cursor: pointer;
             color: var(--text-light);
+            background: none;
+            border: none;
         }
 
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid var(--bg-light);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .cart-total {
             margin-top: 2rem;
             padding-top: 1rem;
-            border-top: 2px solid var(--primary-color);
-            font-size: 1.5rem;
-            font-weight: 700;
+            border-top: 2px solid var(--primary);
+            font-size: 1.8rem;
+            font-weight: 600;
             text-align: right;
         }
 
         .checkout-btn {
             width: 100%;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            padding: 1.2rem;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 968px) {
-            .artwork-grid {
+            .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-menu {
                 display: none;
             }
 
-            .mobile-menu {
-                display: block;
-            }
-
             .hero h1 {
-                font-size: 2rem;
+                font-size: 3rem;
             }
 
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .about-content,
-            .contact-container {
+            .about-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
-            .artwork-grid {
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 2rem;
+            section {
+                padding: 4rem 1.5rem;
             }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">InkAndImagination.com</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="cart-icon" onclick="toggleCart()">
-                    🛒
-                    <span class="cart-count" id="cartCount">0</span>
-                </li>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">INK & IMAGINATION</div>
+            <ul class="nav-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <li><div class="cart-btn" onclick="toggleCart()">CART <span class="cart-count" id="cartCount">0</span></div></li>
             </ul>
-            <div class="mobile-menu">☰</div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Ink & Imagination</h1>
-            <p>Art That Speaks Without Words</p>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Professional sketch and painting artist based in the USA, creating custom artworks that capture emotions and tell stories.</p>
-            <a href="#gallery" class="cta-button">Explore Gallery</a>
+        <div class="hero-content fade-in">
+            <h1>ART THAT SPEAKS</h1>
+            <p>Discover unique handcrafted artworks by Neil, a professional artist based in New York</p>
+            <a href="#gallery" class="btn-primary">EXPLORE COLLECTION</a>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About the Artist</h2>
-            <p class="section-subtitle">Meet Neil - Where Creativity Meets Craftsmanship</p>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Neil's Artistic Journey</h3>
-                    <p>With over a decade of experience in sketch and painting, I've dedicated my life to capturing the beauty of the world through art. Based in the vibrant artistic community of New York, my work spans from intimate portraits to expansive landscapes.</p>
-                    <p>My artistic vision is simple: to create pieces that resonate with the soul. Each stroke is intentional, each color carefully chosen to evoke emotion and tell a story. Whether it's the gentle curve of a petal or the fierce gaze of wildlife, I strive to bring life to canvas.</p>
-                    <p>I specialize in custom sketches and paintings, working closely with clients to transform their visions into tangible art. From commemorative portraits to statement pieces for your home or office, every artwork is crafted with passion and precision.</p>
-                    <a href="#contact" class="cta-button">Commission Custom Art</a>
-                </div>
+            <div class="about-grid">
                 <div class="about-image"></div>
+                <div class="about-content">
+                    <h3>Meet the Artist</h3>
+                    <p>With over a decade of experience, Neil has dedicated his life to capturing the beauty of the world through art. Based in New York, his work spans from intimate portraits to expansive landscapes.</p>
+                    <p>Each piece is crafted with passion and precision, designed to evoke emotion and tell a story. From commemorative portraits to statement pieces, every artwork is a unique creation.</p>
+                    <p>Available for custom commissions and special projects.</p>
+                    <a href="#contact" class="btn-primary">COMMISSION ART</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery -->
     <section id="gallery" class="gallery">
         <div class="container">
-            <h2 class="section-title">Art Gallery</h2>
-            <p class="section-subtitle">Explore My Collection of Original Artworks</p>
-
-            <!-- Portraits & People -->
-            <div class="category-section">
-                <h3 class="category-title">Portraits & People</h3>
-                <div class="artwork-grid" id="portraits-grid"></div>
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <p>Explore our curated collection of original artworks</p>
             </div>
 
-            <!-- Animals & Wildlife -->
-            <div class="category-section">
-                <h3 class="category-title">Animals & Wildlife</h3>
-                <div class="artwork-grid" id="animals-grid"></div>
+            <div class="category-nav">
+                <button class="category-btn active" onclick="filterCategory('all')">ALL</button>
+                <button class="category-btn" onclick="filterCategory('portraits')">PORTRAITS</button>
+                <button class="category-btn" onclick="filterCategory('animals')">WILDLIFE</button>
+                <button class="category-btn" onclick="filterCategory('landscapes')">LANDSCAPES</button>
+                <button class="category-btn" onclick="filterCategory('floral')">FLORAL</button>
+                <button class="category-btn" onclick="filterCategory('abstract')">ABSTRACT</button>
             </div>
 
-            <!-- Nature & Landscapes -->
-            <div class="category-section">
-                <h3 class="category-title">Nature & Landscapes</h3>
-                <div class="artwork-grid" id="landscapes-grid"></div>
-            </div>
-
-            <!-- Floral & Botanical -->
-            <div class="category-section">
-                <h3 class="category-title">Floral & Botanical Art</h3>
-                <div class="artwork-grid" id="floral-grid"></div>
-            </div>
-
-            <!-- Abstract & Creative -->
-            <div class="category-section">
-                <h3 class="category-title">Abstract & Creative Art</h3>
-                <div class="artwork-grid" id="abstract-grid"></div>
-            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Let's Create Something Beautiful Together</p>
-            <div class="contact-container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Let's create something beautiful together</p>
+            </div>
+
+            <div class="contact-grid">
                 <div class="contact-info">
                     <div class="info-item">
                         <div class="info-icon">📍</div>
@@ -665,24 +702,25 @@
                         <div class="info-icon">🎨</div>
                         <div class="info-text">
                             <h4>Custom Orders</h4>
-                            <p>Available for commissioned work, custom portraits, and special projects. Contact me to discuss your vision!</p>
+                            <p>Available for commissioned work and special projects</p>
                         </div>
                     </div>
                 </div>
+
                 <form class="contact-form" onsubmit="handleContactForm(event)">
                     <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <label>YOUR NAME</label>
+                        <input type="text" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
+                        <label>EMAIL ADDRESS</label>
+                        <input type="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="Tell me about your custom art requirements..."></textarea>
+                        <label>MESSAGE</label>
+                        <textarea name="message" required></textarea>
                     </div>
-                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                    <button type="submit" class="btn-primary" style="width: 100%;">SEND MESSAGE</button>
                 </form>
             </div>
         </div>
@@ -691,16 +729,16 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-brand">InkAndImagination.com</div>
-            <p>Professional Sketch & Painting Artist | Based in New York, USA</p>
+            <div class="footer-brand">INK & IMAGINATION</div>
+            <p>Professional Artist | New York, USA</p>
             <div class="social-links">
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="Pinterest">📌</a>
+                <a href="#">📷</a>
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+                <a href="#">📌</a>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 InkAndImagination.com | All Rights Reserved | Artist: Neil</p>
+                <p>&copy; 2024 InkAndImagination.com | All Rights Reserved</p>
             </div>
         </div>
     </footer>
@@ -710,21 +748,20 @@
         <div class="cart-content">
             <div class="cart-header">
                 <h2>Shopping Cart</h2>
-                <span class="close-cart" onclick="toggleCart()">×</span>
+                <button class="close-cart" onclick="toggleCart()">×</button>
             </div>
             <div id="cartItems"></div>
             <div class="cart-total">
                 Total: $<span id="cartTotal">0</span>
             </div>
-            <button class="cta-button checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+            <button class="btn-primary checkout-btn" onclick="checkout()">CHECKOUT</button>
         </div>
     </div>
 
     <script>
-        // Artwork data with real images from Unsplash
         const artworks = {
             portraits: [
-                { id: 1, title: "Elegant Lady Portrait", price: 450, category: "portraits", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" },
+                { id: 1, title: "Elegant Lady", price: 450, category: "portraits", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" },
                 { id: 2, title: "Father & Son", price: 550, category: "portraits", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
                 { id: 3, title: "Vintage Gentleman", price: 400, category: "portraits", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80" },
                 { id: 4, title: "Mother's Love", price: 500, category: "portraits", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80" },
@@ -766,39 +803,40 @@
         };
 
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentFilter = 'all';
 
-        // Render artworks
-        function renderArtworks() {
-            const categories = {
-                'portraits-grid': artworks.portraits,
-                'animals-grid': artworks.animals,
-                'landscapes-grid': artworks.landscapes,
-                'floral-grid': artworks.floral,
-                'abstract-grid': artworks.abstract
-            };
-
-            Object.keys(categories).forEach(gridId => {
-                const grid = document.getElementById(gridId);
-                categories[gridId].forEach(artwork => {
-                    const card = `
-                        <div class="artwork-card">
-                            <img src="${artwork.image}" alt="${artwork.title}" class="artwork-image" loading="lazy">
-                            <div class="artwork-info">
-                                <h4 class="artwork-title">${artwork.title}</h4>
-                                <div class="artwork-price">$${artwork.price}</div>
-                                <div class="artwork-actions">
-                                    <button class="btn btn-cart" onclick="addToCart(${artwork.id})">Add to Cart</button>
-                                    <button class="btn btn-buy" onclick="buyNow(${artwork.id})">Buy Now</button>
-                                </div>
+        function renderGallery(filter = 'all') {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+            
+            const allArtworks = [...artworks.portraits, ...artworks.animals, ...artworks.landscapes, ...artworks.floral, ...artworks.abstract];
+            const filtered = filter === 'all' ? allArtworks : allArtworks.filter(a => a.category === filter);
+            
+            filtered.forEach(artwork => {
+                const item = `
+                    <div class="artwork-item fade-in">
+                        <img src="${artwork.image}" alt="${artwork.title}" loading="lazy">
+                        <div class="artwork-overlay">
+                            <h4>${artwork.title}</h4>
+                            <div class="price">$${artwork.price}</div>
+                            <div class="artwork-actions">
+                                <button class="btn-small btn-cart" onclick="addToCart(${artwork.id})">ADD TO CART</button>
+                                <button class="btn-small btn-buy" onclick="buyNow(${artwork.id})">BUY NOW</button>
                             </div>
                         </div>
-                    `;
-                    grid.innerHTML += card;
-                });
+                    </div>
+                `;
+                grid.innerHTML += item;
             });
         }
 
-        // Cart functions
+        function filterCategory(category) {
+            currentFilter = category;
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderGallery(category);
+        }
+
         function addToCart(artworkId) {
             const allArtworks = [...artworks.portraits, ...artworks.animals, ...artworks.landscapes, ...artworks.floral, ...artworks.abstract];
             const artwork = allArtworks.find(a => a.id === artworkId);
@@ -841,9 +879,7 @@
                         <strong>${item.title}</strong><br>
                         <small>$${item.price} × ${item.quantity}</small>
                     </div>
-                    <div>
-                        <button onclick="removeFromCart(${item.id})" style="background: #e74c3c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Remove</button>
-                    </div>
+                    <button onclick="removeFromCart(${item.id})" style="background: #e74c3c; color: white; border: none; padding: 0.5rem 1rem; cursor: pointer;">Remove</button>
                 </div>
             `).join('');
 
@@ -865,30 +901,23 @@
                 alert('Your cart is empty!');
                 return;
             }
-            alert('Checkout functionality will be connected to the backend API. Total: $' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0));
+            alert('Checkout: $' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0));
         }
 
         function handleContactForm(e) {
             e.preventDefault();
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData);
-            alert('Thank you for your message! This will be connected to the backend API to send emails and save messages.');
+            alert('Thank you for your message!');
             e.target.reset();
         }
 
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
 
-        // Initialize
-        renderArtworks();
+        renderGallery();
         updateCart();
     </script>
 </body>
