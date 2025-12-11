@@ -118,7 +118,7 @@
             margin-top: 80px;
             height: 90vh;
             background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(139, 115, 85, 0.8)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f9f7f4" width="1200" height="600"/><path fill="%23d4a574" opacity="0.1" d="M0 300 Q300 100 600 300 T1200 300 V600 H0 Z"/></svg>');
+                        url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1600&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -218,14 +218,11 @@
         .about-image {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            background: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80');
+            background-size: cover;
+            background-position: center;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-style: italic;
+            box-shadow: var(--shadow);
         }
 
         /* Gallery Section */
@@ -247,7 +244,7 @@
 
         .artwork-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
@@ -267,14 +264,8 @@
         .artwork-image {
             width: 100%;
             height: 300px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
+            object-fit: cover;
+            display: block;
         }
 
         .artwork-info {
@@ -519,6 +510,12 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 968px) {
+            .artwork-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -593,9 +590,7 @@
                     <p>I specialize in custom sketches and paintings, working closely with clients to transform their visions into tangible art. From commemorative portraits to statement pieces for your home or office, every artwork is crafted with passion and precision.</p>
                     <a href="#contact" class="cta-button">Commission Custom Art</a>
                 </div>
-                <div class="about-image">
-                    "Art is not what you see, but what you make others see." - Edgar Degas
-                </div>
+                <div class="about-image"></div>
             </div>
         </div>
     </section>
@@ -726,37 +721,47 @@
     </div>
 
     <script>
-        // Sample artwork data
+        // Artwork data with real images from Unsplash
         const artworks = {
             portraits: [
-                { id: 1, title: "Elegant Lady Portrait", price: 450, category: "portraits" },
-                { id: 2, title: "Father & Son", price: 550, category: "portraits" },
-                { id: 3, title: "Vintage Gentleman", price: 400, category: "portraits" },
-                { id: 4, title: "Mother's Love", price: 500, category: "portraits" }
+                { id: 1, title: "Elegant Lady Portrait", price: 450, category: "portraits", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" },
+                { id: 2, title: "Father & Son", price: 550, category: "portraits", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
+                { id: 3, title: "Vintage Gentleman", price: 400, category: "portraits", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80" },
+                { id: 4, title: "Mother's Love", price: 500, category: "portraits", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80" },
+                { id: 5, title: "Young Dreamer", price: 420, category: "portraits", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80" },
+                { id: 6, title: "Wise Elder", price: 480, category: "portraits", image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80" }
             ],
             animals: [
-                { id: 5, title: "Majestic Lion", price: 600, category: "animals" },
-                { id: 6, title: "Eagle in Flight", price: 550, category: "animals" },
-                { id: 7, title: "Elephant Family", price: 650, category: "animals" },
-                { id: 8, title: "Wolf Pack", price: 580, category: "animals" }
+                { id: 7, title: "Majestic Lion", price: 600, category: "animals", image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=600&q=80" },
+                { id: 8, title: "Eagle in Flight", price: 550, category: "animals", image: "https://images.unsplash.com/photo-1611689342806-0863700ce1e4?w=600&q=80" },
+                { id: 9, title: "Elephant Family", price: 650, category: "animals", image: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=600&q=80" },
+                { id: 10, title: "Wolf Pack", price: 580, category: "animals", image: "https://images.unsplash.com/photo-1614027164847-1b28cfe1df60?w=600&q=80" },
+                { id: 11, title: "Graceful Deer", price: 520, category: "animals", image: "https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=600&q=80" },
+                { id: 12, title: "Colorful Parrot", price: 490, category: "animals", image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=600&q=80" }
             ],
             landscapes: [
-                { id: 9, title: "Mountain Sunrise", price: 700, category: "landscapes" },
-                { id: 10, title: "Ocean Waves", price: 650, category: "landscapes" },
-                { id: 11, title: "Forest Path", price: 600, category: "landscapes" },
-                { id: 12, title: "Desert Dunes", price: 620, category: "landscapes" }
+                { id: 13, title: "Mountain Sunrise", price: 700, category: "landscapes", image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" },
+                { id: 14, title: "Ocean Waves", price: 650, category: "landscapes", image: "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=600&q=80" },
+                { id: 15, title: "Forest Path", price: 600, category: "landscapes", image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" },
+                { id: 16, title: "Desert Dunes", price: 620, category: "landscapes", image: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80" },
+                { id: 17, title: "Autumn Valley", price: 680, category: "landscapes", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" },
+                { id: 18, title: "Misty Lake", price: 640, category: "landscapes", image: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=600&q=80" }
             ],
             floral: [
-                { id: 13, title: "Rose Garden", price: 380, category: "floral" },
-                { id: 14, title: "Sunflower Field", price: 420, category: "floral" },
-                { id: 15, title: "Cherry Blossoms", price: 450, category: "floral" },
-                { id: 16, title: "Tulip Bouquet", price: 400, category: "floral" }
+                { id: 19, title: "Rose Garden", price: 380, category: "floral", image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&q=80" },
+                { id: 20, title: "Sunflower Field", price: 420, category: "floral", image: "https://images.unsplash.com/photo-1470509037663-253afd7f0f51?w=600&q=80" },
+                { id: 21, title: "Cherry Blossoms", price: 450, category: "floral", image: "https://images.unsplash.com/photo-1522383225653-ed111181a951?w=600&q=80" },
+                { id: 22, title: "Tulip Bouquet", price: 400, category: "floral", image: "https://images.unsplash.com/photo-1520763185298-1b434c919102?w=600&q=80" },
+                { id: 23, title: "Lavender Dreams", price: 390, category: "floral", image: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600&q=80" },
+                { id: 24, title: "Orchid Elegance", price: 460, category: "floral", image: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=600&q=80" }
             ],
             abstract: [
-                { id: 17, title: "Cosmic Dreams", price: 800, category: "abstract" },
-                { id: 18, title: "Urban Chaos", price: 750, category: "abstract" },
-                { id: 19, title: "Emotional Waves", price: 720, category: "abstract" },
-                { id: 20, title: "Color Symphony", price: 780, category: "abstract" }
+                { id: 25, title: "Cosmic Dreams", price: 800, category: "abstract", image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80" },
+                { id: 26, title: "Urban Chaos", price: 750, category: "abstract", image: "https://images.unsplash.com/photo-1549887534-1541e9326642?w=600&q=80" },
+                { id: 27, title: "Emotional Waves", price: 720, category: "abstract", image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=600&q=80" },
+                { id: 28, title: "Color Symphony", price: 780, category: "abstract", image: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=600&q=80" },
+                { id: 29, title: "Fluid Motion", price: 760, category: "abstract", image: "https://images.unsplash.com/photo-1578301978162-7aae4d755744?w=600&q=80" },
+                { id: 30, title: "Digital Fusion", price: 820, category: "abstract", image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=600&q=80" }
             ]
         };
 
@@ -777,7 +782,7 @@
                 categories[gridId].forEach(artwork => {
                     const card = `
                         <div class="artwork-card">
-                            <div class="artwork-image">${artwork.title}<br>Original Artwork by Neil</div>
+                            <img src="${artwork.image}" alt="${artwork.title}" class="artwork-image" loading="lazy">
                             <div class="artwork-info">
                                 <h4 class="artwork-title">${artwork.title}</h4>
                                 <div class="artwork-price">$${artwork.price}</div>
