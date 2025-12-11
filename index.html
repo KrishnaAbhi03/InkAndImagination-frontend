@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="InkAndImagination.com - Professional sketch and painting artist Neil from USA. Custom portraits, wildlife, landscapes, floral and abstract art.">
+    <meta name="keywords" content="art, paintings, sketches, portraits, custom art, Neil artist, USA artist, wildlife art, landscape paintings">
+    <title>Ink & Imagination - Art That Speaks Without Words</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #8b7355;
+            --accent-color: #d4a574;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f9f7f4;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(139, 115, 85, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f9f7f4" width="1200" height="600"/><path fill="%23d4a574" opacity="0.1" d="M0 300 Q300 100 600 300 T1200 300 V600 H0 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+        }
+
+        .category-section {
+            margin-bottom: 5rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .artwork-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .artwork-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .artwork-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .artwork-info {
+            padding: 1.5rem;
+        }
+
+        .artwork-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .artwork-price {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .artwork-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-cart {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-cart:hover {
+            background: var(--secondary-color);
+        }
+
+        .btn-buy {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-buy:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-light);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .info-text h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: 'Lato', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .close-cart {
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        .cart-total {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .artwork-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">InkAndImagination.com</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="cart-icon" onclick="toggleCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </li>
+            </ul>
+            <div class="mobile-menu">☰</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Ink & Imagination</h1>
+            <p>Art That Speaks Without Words</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Professional sketch and painting artist based in the USA, creating custom artworks that capture emotions and tell stories.</p>
+            <a href="#gallery" class="cta-button">Explore Gallery</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About the Artist</h2>
+            <p class="section-subtitle">Meet Neil - Where Creativity Meets Craftsmanship</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Neil's Artistic Journey</h3>
+                    <p>With over a decade of experience in sketch and painting, I've dedicated my life to capturing the beauty of the world through art. Based in the vibrant artistic community of New York, my work spans from intimate portraits to expansive landscapes.</p>
+                    <p>My artistic vision is simple: to create pieces that resonate with the soul. Each stroke is intentional, each color carefully chosen to evoke emotion and tell a story. Whether it's the gentle curve of a petal or the fierce gaze of wildlife, I strive to bring life to canvas.</p>
+                    <p>I specialize in custom sketches and paintings, working closely with clients to transform their visions into tangible art. From commemorative portraits to statement pieces for your home or office, every artwork is crafted with passion and precision.</p>
+                    <a href="#contact" class="cta-button">Commission Custom Art</a>
+                </div>
+                <div class="about-image">
+                    "Art is not what you see, but what you make others see." - Edgar Degas
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Art Gallery</h2>
+            <p class="section-subtitle">Explore My Collection of Original Artworks</p>
+
+            <!-- Portraits & People -->
+            <div class="category-section">
+                <h3 class="category-title">Portraits & People</h3>
+                <div class="artwork-grid" id="portraits-grid"></div>
+            </div>
+
+            <!-- Animals & Wildlife -->
+            <div class="category-section">
+                <h3 class="category-title">Animals & Wildlife</h3>
+                <div class="artwork-grid" id="animals-grid"></div>
+            </div>
+
+            <!-- Nature & Landscapes -->
+            <div class="category-section">
+                <h3 class="category-title">Nature & Landscapes</h3>
+                <div class="artwork-grid" id="landscapes-grid"></div>
+            </div>
+
+            <!-- Floral & Botanical -->
+            <div class="category-section">
+                <h3 class="category-title">Floral & Botanical Art</h3>
+                <div class="artwork-grid" id="floral-grid"></div>
+            </div>
+
+            <!-- Abstract & Creative -->
+            <div class="category-section">
+                <h3 class="category-title">Abstract & Creative Art</h3>
+                <div class="artwork-grid" id="abstract-grid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's Create Something Beautiful Together</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h4>Address</h4>
+                            <p>56 Chicago, New York</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-text">
+                            <h4>Phone</h4>
+                            <p>+1 890 765 6423</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <p>neil@inkandimagination.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🎨</div>
+                        <div class="info-text">
+                            <h4>Custom Orders</h4>
+                            <p>Available for commissioned work, custom portraits, and special projects. Contact me to discuss your vision!</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleContactForm(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your custom art requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">InkAndImagination.com</div>
+            <p>Professional Sketch & Painting Artist | Based in New York, USA</p>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="Pinterest">📌</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 InkAndImagination.com | All Rights Reserved | Artist: Neil</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Shopping Cart</h2>
+                <span class="close-cart" onclick="toggleCart()">×</span>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                Total: $<span id="cartTotal">0</span>
+            </div>
+            <button class="cta-button checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        // Sample artwork data
+        const artworks = {
+            portraits: [
+                { id: 1, title: "Elegant Lady Portrait", price: 450, category: "portraits" },
+                { id: 2, title: "Father & Son", price: 550, category: "portraits" },
+                { id: 3, title: "Vintage Gentleman", price: 400, category: "portraits" },
+                { id: 4, title: "Mother's Love", price: 500, category: "portraits" }
+            ],
+            animals: [
+                { id: 5, title: "Majestic Lion", price: 600, category: "animals" },
+                { id: 6, title: "Eagle in Flight", price: 550, category: "animals" },
+                { id: 7, title: "Elephant Family", price: 650, category: "animals" },
+                { id: 8, title: "Wolf Pack", price: 580, category: "animals" }
+            ],
+            landscapes: [
+                { id: 9, title: "Mountain Sunrise", price: 700, category: "landscapes" },
+                { id: 10, title: "Ocean Waves", price: 650, category: "landscapes" },
+                { id: 11, title: "Forest Path", price: 600, category: "landscapes" },
+                { id: 12, title: "Desert Dunes", price: 620, category: "landscapes" }
+            ],
+            floral: [
+                { id: 13, title: "Rose Garden", price: 380, category: "floral" },
+                { id: 14, title: "Sunflower Field", price: 420, category: "floral" },
+                { id: 15, title: "Cherry Blossoms", price: 450, category: "floral" },
+                { id: 16, title: "Tulip Bouquet", price: 400, category: "floral" }
+            ],
+            abstract: [
+                { id: 17, title: "Cosmic Dreams", price: 800, category: "abstract" },
+                { id: 18, title: "Urban Chaos", price: 750, category: "abstract" },
+                { id: 19, title: "Emotional Waves", price: 720, category: "abstract" },
+                { id: 20, title: "Color Symphony", price: 780, category: "abstract" }
+            ]
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Render artworks
+        function renderArtworks() {
+            const categories = {
+                'portraits-grid': artworks.portraits,
+                'animals-grid': artworks.animals,
+                'landscapes-grid': artworks.landscapes,
+                'floral-grid': artworks.floral,
+                'abstract-grid': artworks.abstract
+            };
+
+            Object.keys(categories).forEach(gridId => {
+                const grid = document.getElementById(gridId);
+                categories[gridId].forEach(artwork => {
+                    const card = `
+                        <div class="artwork-card">
+                            <div class="artwork-image">${artwork.title}<br>Original Artwork by Neil</div>
+                            <div class="artwork-info">
+                                <h4 class="artwork-title">${artwork.title}</h4>
+                                <div class="artwork-price">$${artwork.price}</div>
+                                <div class="artwork-actions">
+                                    <button class="btn btn-cart" onclick="addToCart(${artwork.id})">Add to Cart</button>
+                                    <button class="btn btn-buy" onclick="buyNow(${artwork.id})">Buy Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += card;
+                });
+            });
+        }
+
+        // Cart functions
+        function addToCart(artworkId) {
+            const allArtworks = [...artworks.portraits, ...artworks.animals, ...artworks.landscapes, ...artworks.floral, ...artworks.abstract];
+            const artwork = allArtworks.find(a => a.id === artworkId);
+            
+            const existingItem = cart.find(item => item.id === artworkId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...artwork, quantity: 1 });
+            }
+            
+            updateCart();
+            alert(`${artwork.title} added to cart!`);
+        }
+
+        function buyNow(artworkId) {
+            addToCart(artworkId);
+            toggleCart();
+        }
+
+        function updateCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; padding: 2rem; color: #999;">Your cart is empty</p>';
+                cartTotal.textContent = '0';
+                return;
+            }
+
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div>
+                        <strong>${item.title}</strong><br>
+                        <small>$${item.price} × ${item.quantity}</small>
+                    </div>
+                    <div>
+                        <button onclick="removeFromCart(${item.id})" style="background: #e74c3c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Remove</button>
+                    </div>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = total;
+        }
+
+        function removeFromCart(artworkId) {
+            cart = cart.filter(item => item.id !== artworkId);
+            updateCart();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartModal').classList.toggle('active');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            alert('Checkout functionality will be connected to the backend API. Total: $' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0));
+        }
+
+        function handleContactForm(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            alert('Thank you for your message! This will be connected to the backend API to send emails and save messages.');
+            e.target.reset();
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Initialize
+        renderArtworks();
+        updateCart();
+    </script>
+</body>
+</html>
