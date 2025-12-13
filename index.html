@@ -311,6 +311,188 @@
             font-style: italic;
         }
 
+        /* Features Horizontal Scroll Section */
+        .features-scroll {
+            background: var(--brown-gradient);
+            padding: 8rem 0;
+            overflow: hidden;
+        }
+
+        .features-header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .features-header-left h2 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .features-header-left p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .features-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .features-arrow {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--accent-gold);
+            background: transparent;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border-radius: 50%;
+        }
+
+        .features-arrow:hover {
+            background: var(--accent-gold);
+            color: var(--brown-dark);
+        }
+
+        .features-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features-track {
+            display: flex;
+            gap: 2rem;
+            padding: 0 4rem;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card {
+            min-width: 400px;
+            height: 500px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+        }
+
+        .feature-card[data-bg="1"]::before {
+            background-image: url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80');
+        }
+
+        .feature-card[data-bg="2"]::before {
+            background-image: url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80');
+        }
+
+        .feature-card[data-bg="3"]::before {
+            background-image: url('https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&q=80');
+        }
+
+        .feature-card[data-bg="4"]::before {
+            background-image: url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&q=80');
+        }
+
+        .feature-card[data-bg="5"]::before {
+            background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80');
+        }
+
+        .feature-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-white);
+        }
+
+        .feature-content p {
+            font-size: 1.05rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .btn-feature {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-feature:hover {
+            background: var(--accent-gold);
+            color: var(--brown-dark);
+        }
+
         /* Team Section */
         .team {
             background: var(--brown-gradient);
@@ -997,6 +1179,14 @@
             .news-grid {
                 grid-template-columns: 1fr;
             }
+
+            .feature-card {
+                min-width: 350px;
+            }
+
+            .features-track {
+                padding: 0 2rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1045,6 +1235,30 @@
 
             .slider-arrow.next {
                 right: 1rem;
+            }
+
+            .feature-card {
+                min-width: 300px;
+            }
+
+            .features-header {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .features-scroll {
+                padding: 5rem 0;
+            }
+
+            .features-track {
+                padding: 0 1rem;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .feature-card {
+                scroll-snap-align: start;
             }
         }
 
@@ -1103,6 +1317,63 @@
                     <p>My artistic vision is simple: to create pieces that resonate with the soul. Each stroke is intentional, each color carefully chosen to evoke emotion and tell a story. Whether it's the gentle curve of a petal or the fierce gaze of wildlife, I strive to bring life to canvas.</p>
                     <p>I specialize in custom sketches and paintings, working closely with clients to transform their visions into tangible art.</p>
                     <div class="signature">Neil</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Horizontal Scroll Section -->
+    <section class="features-scroll">
+        <div class="features-header">
+            <div class="features-header-left">
+                <h2>Why Choose Us</h2>
+                <p>Discover what makes InkAndImagination.com the premier destination for art lovers</p>
+            </div>
+            <div class="features-nav">
+                <button class="features-arrow" onclick="scrollFeatures(-1)">‹</button>
+                <button class="features-arrow" onclick="scrollFeatures(1)">›</button>
+            </div>
+        </div>
+        <div class="features-container">
+            <div class="features-track" id="featuresTrack">
+                <div class="feature-card" data-bg="1">
+                    <div class="feature-content">
+                        <h3>Artistic Vision</h3>
+                        <p>Neil's sketches and paintings are not just images; they are portals to other dimensions, crafted with a passion that borders on obsession. Prepare to be amazed.</p>
+                        <a href="#gallery" class="btn-feature">› Shop Now</a>
+                    </div>
+                </div>
+
+                <div class="feature-card" data-bg="2">
+                    <div class="feature-content">
+                        <h3>Premium Quality</h3>
+                        <p>Each piece is a testament to meticulous craftsmanship. We use only the finest materials, ensuring your art looks as stunning years from now as it does today.</p>
+                        <a href="#gallery" class="btn-feature">› Shop Now</a>
+                    </div>
+                </div>
+
+                <div class="feature-card" data-bg="3">
+                    <div class="feature-content">
+                        <h3>Unique Style</h3>
+                        <p>Forget cookie-cutter art. Neil's work is a wild, untamed expression of creativity, guaranteed to make your space anything but boring.</p>
+                        <a href="#gallery" class="btn-feature">› Shop Now</a>
+                    </div>
+                </div>
+
+                <div class="feature-card" data-bg="4">
+                    <div class="feature-content">
+                        <h3>Global Reach</h3>
+                        <p>Though based in the USA, Neil's art transcends borders. We ship worldwide, bringing a touch of InkAndImagination.com to every corner of the globe.</p>
+                        <a href="#gallery" class="btn-feature">› Shop Now</a>
+                    </div>
+                </div>
+
+                <div class="feature-card" data-bg="5">
+                    <div class="feature-content">
+                        <h3>Custom Commissions</h3>
+                        <p>Have a vision? Let's bring it to life. Neil specializes in custom artwork tailored to your unique story and space.</p>
+                        <a href="#contact" class="btn-feature">› Contact Us</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1399,6 +1670,7 @@
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let currentFilter = 'all';
         let currentSlide = 0;
+        let featuresPosition = 0;
 
         // Gallery Slider
         function moveSlider(direction) {
@@ -1410,6 +1682,18 @@
 
         // Auto-slide
         setInterval(() => moveSlider(1), 5000);
+
+        // Features Horizontal Scroll
+        function scrollFeatures(direction) {
+            const track = document.getElementById('featuresTrack');
+            const cardWidth = 400 + 32; // card width + gap
+            featuresPosition += direction * cardWidth;
+            
+            const maxScroll = -(track.children.length * cardWidth - track.parentElement.offsetWidth);
+            featuresPosition = Math.max(maxScroll, Math.min(0, featuresPosition));
+            
+            track.style.transform = `translateX(${featuresPosition}px)`;
+        }
 
         function renderGallery(filter = 'all') {
             const grid = document.getElementById('galleryGrid');
