@@ -139,24 +139,63 @@
             font-weight: 700;
         }
 
-        /* Hero Section */
+        /* Hero Section with Cinematic Animation */
         .hero {
             margin-top: 80px;
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background: url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            animation: heroZoomPan 22s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero::before {
+                animation: none;
+            }
+        }
+
+        @keyframes heroZoomPan {
+            0% {
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                transform: scale(1.05) translateY(-20px);
+            }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+            z-index: 1;
         }
 
         .hero-content {
             max-width: 900px;
             padding: 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-subtitle {
@@ -166,6 +205,8 @@
             color: var(--accent-gold);
             margin-bottom: 1.5rem;
             font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
         }
 
         .hero h1 {
@@ -174,6 +215,8 @@
             font-weight: 800;
             letter-spacing: 3px;
             line-height: 1.1;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
         }
 
         .hero-description {
@@ -182,6 +225,19 @@
             margin-bottom: 3rem;
             font-weight: 300;
             letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .btn-hero {
@@ -195,9 +251,11 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-size: 0.9rem;
-            transition: all 0.4s;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.2s forwards;
         }
 
         .btn-hero::before {
@@ -212,12 +270,69 @@
             z-index: -1;
         }
 
+        .btn-hero:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
         .btn-hero:hover::before {
             left: 0;
         }
 
         .btn-hero:hover {
             color: var(--primary-dark);
+        }
+
+        /* Moving Text Marquee */
+        .marquee-section {
+            background: #ffed4e;
+            padding: 1.5rem 0;
+            overflow: hidden;
+            position: relative;
+            transform: rotate(-3deg);
+            margin: -2rem 0;
+            width: 110%;
+            left: -5%;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marqueeScroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee-text {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding-right: 3rem;
+        }
+
+        .marquee-text span {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .marquee-text .star {
+            font-size: 1.5rem;
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Disable animations on mobile for performance */
+        @media (max-width: 768px) {
+            .hero::before {
+                animation: none;
+                transform: scale(1);
+            }
         }
 
         /* Section Styles */
@@ -1404,6 +1519,10 @@
             .carousel-item {
                 min-width: 300px;
             }
+
+            .marquee-text span {
+                font-size: 1.8rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1477,22 +1596,10 @@
             .feature-card {
                 scroll-snap-align: start;
             }
-        }
 
-        /* Scroll Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            .marquee-text span {
+                font-size: 1.5rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
@@ -1512,15 +1619,41 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Cinematic Animation -->
     <section id="home" class="hero">
-        <div class="hero-content fade-in">
+        <div class="hero-content">
             <div class="hero-subtitle">Professional Artist</div>
             <h1>INK & IMAGINATION</h1>
             <p class="hero-description">Discover unique handcrafted artworks that capture emotions and tell stories</p>
             <a href="#gallery" class="btn-hero">Explore Gallery</a>
         </div>
     </section>
+
+    <!-- Moving Text Marquee -->
+    <div class="marquee-section">
+        <div class="marquee-content">
+            <div class="marquee-text">
+                <span class="star">*</span>
+                <span>Vibrant Paintings</span>
+                <span class="star">*</span>
+                <span>Original Sketches</span>
+                <span class="star">*</span>
+                <span>Global Shipping</span>
+                <span class="star">*</span>
+                <span>Custom Commissions</span>
+            </div>
+            <div class="marquee-text">
+                <span class="star">*</span>
+                <span>Vibrant Paintings</span>
+                <span class="star">*</span>
+                <span>Original Sketches</span>
+                <span class="star">*</span>
+                <span>Global Shipping</span>
+                <span class="star">*</span>
+                <span>Custom Commissions</span>
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -2069,7 +2202,7 @@
             
             filtered.forEach(artwork => {
                 const item = `
-                    <div class="gallery-item fade-in">
+                    <div class="gallery-item">
                         <img src="${artwork.image}" alt="${artwork.title}" loading="lazy">
                         <div class="gallery-overlay">
                             <h4>${artwork.title}</h4>
