@@ -427,17 +427,51 @@
         }
 
         /* Instagram Feed Section */
-        .instagram-feed {
-  padding: 80px 20px;
-  text-align: center;
-  background: #0f0b08; /* dark artistic background */
-}
+        .insta-section {
+          padding: 80px 20px;
+          background: #0f0b08;
+        }
+        
+        .insta-section h2 {
+          color: #e6c17c;
+          text-align: center;
+          margin-bottom: 40px;
+        }
+        
+        .insta-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 20px;
+        }
+        
+        .insta-card {
+          position: relative;
+          overflow: hidden;
+          border-radius: 14px;
+        }
+        
+        .insta-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform .4s ease;
+        }
+        
+        .insta-card:hover img {
+          transform: scale(1.08);
+        }
+        
+        .play-icon {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 60px;
+          color: white;
+          background: rgba(0,0,0,.3);
+        }
 
-.instagram-feed h2 {
-  color: #e6c17c; /* gold accent */
-  margin-bottom: 40px;
-  font-family: serif;
-}
 
 
         /* Art in Motion Video Section */
@@ -1695,12 +1729,11 @@
     </section>
 
     <!-- Instagram Feed Section -->
-    <blockquote class="instagram-media"
-      data-instgrm-permalink="https://www.instagram.com/p/POST_ID/"
-      data-instgrm-version="14">
-    </blockquote>
+    <section class="insta-section">
+      <h2>Instagram Feed</h2>
+      <div id="instagram-feed" class="insta-grid"></div>
+    </section>
 
-<script async src="https://www.instagram.com/embed.js"></script>
     
 
     <!-- Art in Motion Video Section -->
