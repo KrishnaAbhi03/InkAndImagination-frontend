@@ -2371,6 +2371,31 @@
 
         renderGallery();
         updateCart();
+
+
+
+
+
+
+
+        fetch("http://localhost:5000/instagram-feed")
+  .then(res => res.json())
+  .then(posts => {
+    const feed = document.getElementById("instagram-feed");
+
+    posts.slice(0, 9).forEach(post => {
+      const div = document.createElement("a");
+      div.href = post.permalink;
+      div.target = "_blank";
+      div.className = "insta-card";
+
+      div.innerHTML = `
+        <img src="${post.media_url}">
+        ${post.media_type === "VIDEO" ? '<div class="play-icon">▶</div>' : ''}
+      `;
+      feed.appendChild(div);
+    });
+  });
     </script>
 </body>
 </html>
